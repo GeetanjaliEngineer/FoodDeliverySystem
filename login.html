@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - FoodieGo</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:linear-gradient(135deg,#ff6b35,#ff9f1c);
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .login-container{
+      width:400px;
+      background:#fff;
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .logo{
+      text-align:center;
+      margin-bottom:25px;
+    }
+
+    .logo h1{
+      color:#ff6b35;
+      font-size:32px;
+    }
+
+    .logo p{
+      color:#777;
+      font-size:14px;
+    }
+
+    .input-group{
+      margin-bottom:18px;
+    }
+
+    .input-group label{
+      display:block;
+      margin-bottom:6px;
+      font-weight:500;
+    }
+
+    .input-group input{
+      width:100%;
+      padding:12px;
+      border:1px solid #ddd;
+      border-radius:10px;
+      outline:none;
+    }
+
+    .input-group input:focus{
+      border-color:#ff6b35;
+    }
+
+    .options{
+      display:flex;
+      justify-content:space-between;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    .options a{
+      color:#ff6b35;
+      text-decoration:none;
+    }
+
+    .login-btn{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      background:#ff6b35;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    .login-btn:hover{
+      background:#e85a2a;
+    }
+
+    .divider{
+      text-align:center;
+      margin:20px 0;
+      color:#777;
+    }
+
+    .social-login{
+      display:flex;
+      gap:10px;
+    }
+
+    .social-login button{
+      flex:1;
+      padding:10px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
+    .google{
+      background:#f1f1f1;
+    }
+
+    .facebook{
+      background:#1877f2;
+      color:white;
+    }
+
+    .signup{
+      text-align:center;
+      margin-top:20px;
+    }
+
+    .signup a{
+      color:#ff6b35;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    @media(max-width:450px){
+      .login-container{
+        width:90%;
+        padding:30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+  <div class="logo">
+    <h1>🍔 FoodieGo</h1>
+    <p>Welcome Back!</p>
+  </div>
+
+  <form id="loginForm">
+
+    <div class="input-group">
+      <label>Email</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required>
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required>
+    </div>
+
+    <div class="options">
+      <label>
+        <input type="checkbox">
+        Remember me
+      </label>
+
+      <a href="#">Forgot Password?</a>
+    </div>
+
+    <button type="submit" class="login-btn">
+      Login
+    </button>
+
+    <div class="divider">
+      OR
+    </div>
+
+    <div class="social-login">
+      <button type="button" class="google">
+        Google
+      </button>
+
+      <button type="button" class="facebook">
+        Facebook
+      </button>
+    </div>
+
+    <div class="signup">
+      Don't have an account?
+      <a href="signup.html">Sign Up</a>
+    </div>
+
+  </form>
+
+</div>
+
+<script>
+
+  document.getElementById("loginForm")
+    .addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      let email =
+        document.getElementById("email").value;
+
+      let password =
+        document.getElementById("password").value;
+
+      let savedUser =
+        JSON.parse(localStorage.getItem("user"));
+
+      if(
+        savedUser &&
+        savedUser.email === email &&
+        savedUser.password === password
+      ){
+
+        localStorage.setItem("loggedIn","true");
+
+        alert("Login Successful!");
+
+        window.location.href = "dashboard.html";
+
+      }else{
+
+        alert("Invalid Email or Password");
+
+      }
+
+    });
+
+</script>
+
+</body>
+</html>

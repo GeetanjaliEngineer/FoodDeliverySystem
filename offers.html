@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieGo - Offers</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#fff8f3;
+      padding-top:90px;
+    }
+
+    /* Navbar */
+
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      background:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      color:#ff5722;
+    }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#333;
+      font-weight:600;
+    }
+
+    .nav-links a:hover{
+      color:#ff5722;
+    }
+
+    .nav-buttons{
+      display:flex;
+      gap:10px;
+    }
+
+    .cart-btn,
+    .login-btn{
+      background:#ff5722;
+      color:white;
+      border:none;
+      padding:10px 18px;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    /* Banner */
+
+    .offers-section{
+      padding:50px 8%;
+      text-align:center;
+    }
+
+    .banner{
+      background:linear-gradient(135deg,#ff5722,#ff9800);
+      color:white;
+      padding:50px;
+      border-radius:20px;
+      margin-bottom:40px;
+    }
+
+    .banner h2{
+      font-size:40px;
+      margin-bottom:10px;
+    }
+
+    .banner p{
+      font-size:18px;
+    }
+
+    /* Timer */
+
+    .timer-box{
+      margin-top:20px;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    /* Heading */
+
+    .offers-section h1{
+      font-size:48px;
+      color:#222;
+    }
+
+    .subtitle{
+      color:#666;
+      margin:15px 0 40px;
+    }
+
+    /* Offer Cards */
+
+    .offers-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .offer-card{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      transition:.3s;
+    }
+
+    .offer-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .badge{
+      background:#ff5722;
+      color:white;
+      padding:8px 15px;
+      border-radius:30px;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .offer-card h2{
+      margin:20px 0 10px;
+    }
+
+    .offer-card p{
+      color:#666;
+      margin-bottom:20px;
+    }
+
+    .coupon{
+      background:#ffe5dc;
+      color:#ff5722;
+      padding:12px;
+      border-radius:10px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    .coupon:hover{
+      background:#ffd2c3;
+    }
+
+    /* Footer */
+
+    .footer{
+      background:#222;
+      color:white;
+      margin-top:60px;
+    }
+
+    .footer-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:30px;
+      padding:40px;
+    }
+
+    .footer-box h2,
+    .footer-box h3{
+      color:#ff5722;
+      margin-bottom:15px;
+    }
+
+    .footer-box p{
+      color:#ccc;
+      line-height:1.8;
+    }
+
+    .footer-box a{
+      display:block;
+      color:#ccc;
+      text-decoration:none;
+      margin-bottom:8px;
+    }
+
+    .footer-box a:hover{
+      color:#ff5722;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding:15px;
+      border-top:1px solid #444;
+    }
+
+    /* Responsive */
+
+    @media(max-width:768px){
+
+      .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:15px;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      body{
+        padding-top:160px;
+      }
+
+      .offers-section h1{
+        font-size:35px;
+      }
+
+      .banner h2{
+        font-size:28px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+
+    <div class="logo">🍔 FoodieGo</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="offers.html">Offers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+      <button class="cart-btn">🛒 Cart</button>
+      <button class="login-btn">Login</button>
+    </div>
+
+  </nav>
+</header>
+
+<section class="offers-section">
+
+  <div class="banner">
+    <h2>🔥 Flat 50% OFF</h2>
+    <p>Get exciting discounts on your first order today.</p>
+
+    <div class="timer-box">
+      Offer Ends In: <span id="timer">06:00:00</span>
+    </div>
+  </div>
+
+  <h1>Exclusive Offers</h1>
+  <p class="subtitle">Save More With FoodieGo</p>
+
+  <div class="offers-container">
+
+    <div class="offer-card">
+      <span class="badge">50% OFF</span>
+      <h2>First Order Offer</h2>
+      <p>Applicable on your first order.</p>
+      <div class="coupon">WELCOME50</div>
+    </div>
+
+    <div class="offer-card">
+      <span class="badge">FREE DELIVERY</span>
+      <h2>Free Delivery</h2>
+      <p>Orders above ₹299.</p>
+      <div class="coupon">FREE299</div>
+    </div>
+
+    <div class="offer-card">
+      <span class="badge">20% OFF</span>
+      <h2>Weekend Deal</h2>
+      <p>Special weekend savings.</p>
+      <div class="coupon">WEEKEND20</div>
+    </div>
+
+    <div class="offer-card">
+      <span class="badge">BUY 1 GET 1</span>
+      <h2>Pizza Festival</h2>
+      <p>Buy one pizza and get one free.</p>
+      <div class="coupon">PIZZAFREE</div>
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h2>🍔 FoodieGo</h2>
+      <p>Fast, fresh and delicious food delivered right to your doorstep.</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="offers.html">Offers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Support</h3>
+      <a href="#">Help Center</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 FoodieGo. All Rights Reserved.
+  </div>
+
+</footer>
+
+<script>
+
+  /* Copy Coupon */
+
+  document.querySelectorAll(".coupon").forEach(coupon=>{
+
+    const original = coupon.innerText;
+
+    coupon.addEventListener("click",()=>{
+
+      navigator.clipboard.writeText(original);
+
+      coupon.innerText="Copied ✓";
+
+      setTimeout(()=>{
+        coupon.innerText=original;
+      },2000);
+
+    });
+
+  });
+
+  /* Countdown Timer */
+
+  let hours = 6;
+  let minutes = 0;
+  let seconds = 0;
+
+  setInterval(()=>{
+
+    if(seconds === 0){
+      if(minutes === 0){
+        if(hours > 0){
+          hours--;
+          minutes = 59;
+          seconds = 59;
+        }
+      }else{
+        minutes--;
+        seconds = 59;
+      }
+    }else{
+      seconds--;
+    }
+
+    document.getElementById("timer").innerHTML =
+      String(hours).padStart(2,'0') + ":" +
+      String(minutes).padStart(2,'0') + ":" +
+      String(seconds).padStart(2,'0');
+
+  },1000);
+
+</script>
+
+</body>
+</html>
+

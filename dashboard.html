@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - FoodieGo</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 50px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#ff6600;
+    }
+
+    .nav-buttons a button{
+      background:#ff6600;
+      color:white;
+      border:none;
+      padding:10px 18px;
+      border-radius:6px;
+      cursor:pointer;
+      margin-left:10px;
+    }
+
+    /* HERO DASHBOARD */
+    .hero{
+      margin-top:120px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      padding:40px;
+    }
+
+    .hero h1{
+      font-size:40px;
+      margin-bottom:10px;
+    }
+
+    .hero h2{
+      color:#ff6600;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      color:#666;
+      max-width:500px;
+      margin-bottom:25px;
+    }
+
+    /* ORDER BUTTON */
+    .order-btn{
+      display:inline-block;
+      padding:14px 28px;
+      background:#ff6600;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      font-size:16px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .order-btn:hover{
+      background:#e65c00;
+      transform:scale(1.05);
+    }
+
+    /* LOGOUT */
+    .logout-btn{
+      margin-top:15px;
+      background:#e74c3c;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+  <div class="logo">🍔 FoodieGo</div>
+
+  <div class="nav-buttons">
+
+    <a href="index.html">
+      <button>Home</button>
+    </a>
+
+    <a href="cart.html">
+      <button>Cart 🛒</button>
+    </a>
+
+  </div>
+
+</nav>
+
+<!-- DASHBOARD -->
+<section class="hero">
+
+  <h1>Welcome 🎉</h1>
+
+  <h2 id="username">User</h2>
+
+  <p>
+    You are logged in successfully. Explore delicious food and order your favorite meals now.
+  </p>
+
+  <!-- ORDER NOW BUTTON -->
+  <a href="menu.html" class="order-btn">
+    🍔 Order Now
+  </a>
+
+  <button class="logout-btn" onclick="logout()">
+    Logout
+  </button>
+
+</section>
+
+<script>
+
+  // LOGIN CHECK
+  if(localStorage.getItem("loggedIn") !== "true"){
+    window.location.href = "login.html";
+  }
+
+  // SHOW USER NAME
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  if(user){
+    document.getElementById("username").innerText = user.name;
+  }
+
+  // LOGOUT
+  function logout(){
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html";
+  }
+
+</script>
+
+</body>
+</html>
